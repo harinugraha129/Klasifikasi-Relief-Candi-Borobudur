@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Judul}}</title>
+</head>
+<body>
+	{{SubJudul}}
+
+	<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <button type="submit">Upload Gambar</button>
+    </form>
+
+    <table>
+        <tr>
+            <td>Result</td>
+        </tr>
+        <tr>    
+            <td><img width="50%" src="{{directory}}" alt="img"></td>
+        </tr>
+        <tr>
+            <td><h4>{{hasil}}</h4></td>
+        </tr>
+    </table>
+</body>
+</html>

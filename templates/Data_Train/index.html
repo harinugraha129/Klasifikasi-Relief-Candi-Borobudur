@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Judul}}</title>
+</head>
+<body>
+	<h1>{{SubJudul}}</h1>
+
+	<table border="5" class="table" align="center">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>LBP Hist</th>
+                <th>Label</th>
+                <th>Directory</th>
+                <th>Gambar</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{{data}}
+            {%for data in data%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data}</td>
+                    <td>{{data.label}}</td>
+                    <td>{{data.directory}}</td>
+                    <td><img width="50%" src="{{data.directory}}" alt="img"></td>
+                    <td><a href=""><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

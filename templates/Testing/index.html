@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Judul}}</title>
+</head>
+<body>
+	{{SubJudul}}
+
+	<table border="5" class="table" align="center">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name Image</th>
+                <th>Hasil Klasifikasi</th>
+                <th width="30%">Gambar</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for data in tb_dataTesting%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{data.image}}</td>
+                    <td>{{data.label}}</td>
+                    <td><img height="50" src="{{data.directory}}" alt="img"></td>
+                    <td><a href=""><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/testing/upload"><button class="btn btn-info">Tambah Data</button></a>
+</body>
+</html>
