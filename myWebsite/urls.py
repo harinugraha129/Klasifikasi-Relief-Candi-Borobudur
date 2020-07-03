@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 
+from . import views
 from Data_Train import views as dt_views
 from Testing import views as test_views
 
@@ -25,12 +26,16 @@ from Testing import views as test_views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('', views.index, name='index'),
+
     path('data_train/', dt_views.index, name="data_train"),
 
     path('testing/', test_views.index, name="testing"),
     path('testing/upload/', test_views.upload, name="testing_upload"),
 
 
+    #REST_FRAMEWORK URLS
+    path ('api/testing/', include('Testing.api.urls', 'testing_api'))
 ]
 
 if settings.DEBUG:

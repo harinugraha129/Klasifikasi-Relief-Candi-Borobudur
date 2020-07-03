@@ -13,7 +13,7 @@ import cv2
 import os, sys
 
 from lib.main_function import get_lbpImg, get_kNN_clasification
-from lib.database import DB
+# from lib.database import DB
 # Create your views here.
 def index(request): 
     
@@ -67,13 +67,13 @@ def upload(request):
 	        'SubJudul' 		: 'Form Pengujian',
         	'hasil'			: result,
 	        'directory'		: directory,
-        	'form'	: form
+        	'form'			: form
     	}
 		return render(request, 'Testing/upload.html', context)
 
 	form = DataTestForm()
 	context = {
-        'Judul' : 'Dataset',
+        'Judul'		 : 'Dataset',
         'SubJudul' : 'Data Testing',
         'form'		: form
     }

@@ -1,0 +1,185 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.13.1-web/css/all.min.css">
+
+
+    <!-- My CSS -->
+    <style>
+
+      .nav-link:hover {
+        background-color: grey;
+      }
+
+      .nav {
+        position: fixed;
+      }
+
+      .jumbotron {
+        background-image: url({% static "img/jumbotron_background_2.jpg" %});
+        background-size: cover;
+      }
+
+      
+    </style>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <div class="row no-gutters">
+
+      <div class="col-md-2 bg-dark pr-3 pt-4 ">
+        <nav class="nav flex-column ml-3 mb-5">
+          <a class="nav-link active text-white" href="/"> <i class="fas fa-tachometer-alt mr-2"></i> Dashboard</a><hr class="bg-secondary">
+          <a class="nav-link text-white" href="/data_train"> <i class="fas fa-database mr-2"></i> Data Latih</a><hr class="bg-secondary">
+          <a class="nav-link text-white" href="/testing"> <i class="fas fa-list mr-2"></i> Pengujian</a><hr class="bg-secondary">
+          <a class="nav-link text-white" href="#"> <i class="fas fa-sign-out-alt mr-2"></i> Keluar</a><hr class="bg-secondary">
+        </nav>
+      </div>
+
+      <div class="col-md-10 p-4 pb-2">
+        <h3><i class="fas fa-tachometer-alt mr-2"></i> Dashboard</a><hr class="bg-secondary"></h3>
+
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container text-center text-white">
+            <p class="lead"></p>
+            <h1 class="display-4"><b>Sistem Deteksi Relief Candi Borobudur</b></h1>
+            <p class="lead"><b>Menggunakan Metode K-Nearest Neighboard</b></p>
+          </div>
+        </div>
+
+
+        <section id="about" class="about bg-light">
+        <div class="container text-center">
+          <div class="row mb-4">
+            <div class="col">
+              <h2>Cara Penggunaan</h2>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-5">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+            </div>
+            <div class="col-md-5">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+              </div>
+          </div>
+        </div>
+        </section>
+
+
+        <section id="portofolio" class="portofolio pb-4">
+        <div class="container">
+          <div class="row text-center mb-4 pt-4">
+            <div class="col">
+              <h2>Relief Candi Borobudur</h2>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md">
+              <div class="card">
+                <img src="{% static "img/thumbs/1.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Lalitavista</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <img src="{% static "img/thumbs/2.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Manohara</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <img src="{% static "img/thumbs/3.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Awadana</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md">
+              <div class="card">
+                <img src="{% static "img/thumbs/4.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Gandawyuha</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <img src="{% static "img/thumbs/5.png" %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Jataka</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+            </div>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="admin.js"></script>
+  </body>
+</html>
