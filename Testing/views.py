@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import DataTestForm
 from .models import DataTesting
 
@@ -78,3 +78,20 @@ def upload(request):
         'form'		: form
     }
 	return render(request, 'Testing/upload.html', context)
+
+def delete(request, id):
+	
+	tb_dataTesting = DataTesting.objects.get(id = id)
+	print(tb_dataTesting)
+	try:
+		# dir_path = os.path.dirname(os.path.realpath(__file__))
+		filepath = os.path.join(MEDIA_ROOT,tb_dataTesting.image)
+		# print(MEDIA_ROOT)
+		# print(tb_dataTesting.directory)
+		print(filepath)
+		os.remove(filepath)
+	except:
+		print('gagal hapus file')
+	tb_dataTesting.delete()
+	
+	return redirect('testing')

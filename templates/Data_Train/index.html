@@ -54,18 +54,16 @@
                     <th>Nilai LBP</th>
                     <th>Label</th>
                     <th>Directori</th>
-                    <th>Gambar</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                {%for data in data%}
+                {%for data in tb_dataTraining%}
                     <tr>
                         <td>{{forloop.counter}}</td>
-                        <td>{{data}</td>
+                        <td>{{data.lbp}}</td>
                         <td>{{data.label}}</td>
                         <td>{{data.directory}}</td>
-                        <td><img width="50%" src="{{data.directory}}" alt="img"></td>
                         <td><a href=""><button class="btn btn-danger">Hapus</button></a></td>
                     </tr>
                 {% endfor %}

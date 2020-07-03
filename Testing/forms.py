@@ -5,4 +5,13 @@ class DataTestForm(forms.Form):
 	image = forms.FileField()
 	nilai_k = forms.IntegerField(required=True)
 	point = forms.IntegerField(required=True)
-	radius = forms.IntegerField(required=True)
+	radius = forms.IntegerField(
+		required=True,
+		label = "Radius LBP",
+	    widget = forms.TextInput(
+            attrs={
+                'placeholder':'Nama label dari gambar',
+
+            }
+	    )
+	)

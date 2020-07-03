@@ -38,7 +38,7 @@ def get_lbpDataset(db, points, radius):
         # label and data lists
 		# print(imagePath)
 		directory.append(imagePath)
-		labels.append(imagePath.split("\\")[-2])  # use "\\" in Windows
+		labels.append(imagePath.split("/")[-2])  # use "\\" in Windows
 		data.append(hist)
 	return data, labels, directory
 

@@ -32,6 +32,7 @@ urlpatterns = [
 
     path('testing/', test_views.index, name="testing"),
     path('testing/upload/', test_views.upload, name="testing_upload"),
+    path('testing/delete/<int:id>', test_views.delete, name="testing_delete"),
 
 
     #REST_FRAMEWORK URLS

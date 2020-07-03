@@ -65,7 +65,7 @@
                         <td>{{data.image}}</td>
                         <td>{{data.label}}</td>
                         <td><img height="50" src="{{data.directory}}" alt="img"></td>
-                        <td><a href=""><button class="btn btn-danger">Delete</button></a></td>
+                        <td><a href="{% url 'testing_delete' id=data.id %}"><button class="btn btn-danger">Delete</button></a></td>
                     </tr>
                 {% endfor %}
             </tbody>
