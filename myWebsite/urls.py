@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from . import views
 from Data_Train import views as dt_views
 from Testing import views as test_views
+from Testing import api_ as test_api
 
 
 urlpatterns = [
@@ -33,10 +34,12 @@ urlpatterns = [
     path('testing/', test_views.index, name="testing"),
     path('testing/upload/', test_views.upload, name="testing_upload"),
     path('testing/delete/<int:id>', test_views.delete, name="testing_delete"),
+    path ('testing/api/', test_api.test_api ),
+    path ('test_post/api/', test_api.test_post ),
 
 
     #REST_FRAMEWORK URLS
-    path ('api/testing/', include('Testing.api.urls', 'testing_api'))
+    path ('api/testing/', include('Testing.api.urls', 'testing_api')),
 ]
 
 if settings.DEBUG:

@@ -95,3 +95,4 @@ def delete(request, id):
 	tb_dataTesting.delete()
 	
 	return redirect('testing')
+

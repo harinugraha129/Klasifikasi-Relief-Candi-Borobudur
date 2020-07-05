@@ -15,8 +15,15 @@ def index(request):
 		
 		file_name = os.path.join("/home/night/Documents/Python3/TA_Wasis/myWebsite/",directory[x])
 
+		string = ""
+		for z in data[x]:
+			if string == "":
+				string = str(z)
+			else:
+				string += ","+str(z)
+
 		data_tabel = {
-			'lbp'	: str(data[x]),
+			'lbp'	: string,
 			'label'	: label[x],
 			'directory'	: directory[x],
 			'file_name'	: file_name,
