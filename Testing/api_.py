@@ -3,7 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import numpy as np
 import urllib
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from django.core.files.storage import FileSystemStorage
 from myWebsite.settings import MEDIA_ROOT
 import json
@@ -58,7 +59,9 @@ def _grab_image(path=None, stream=None, url=None):
 	# return the image
 	return image
 
-@csrf_exempt
+# @csrf_exempt
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def test_api(request):
 	data = {
 		'data'	: 'contoh 1',

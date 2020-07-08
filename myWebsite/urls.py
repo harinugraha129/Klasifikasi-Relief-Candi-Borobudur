@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+admin.autodiscover()
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 from Data_Train import views as dt_views
@@ -39,7 +41,7 @@ urlpatterns = [
 
 
     #REST_FRAMEWORK URLS
-    path ('api/testing/', include('Testing.api.urls', 'testing_api')),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # <-- And here
 ]
 
 if settings.DEBUG:

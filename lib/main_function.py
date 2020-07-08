@@ -49,7 +49,28 @@ def get_kNN_clasification(k, X_train, y_train, hist_test):
 	prediction = neigh.predict([hist_test])[0]
 	return prediction
 
-
+def get_Dataset(db):
+	# desc = LocalBinaryPatterns(points, radius)
+	# data = []
+	labels = []
+	directory = []
+	print("load dataset", db)
+	data_training = 'media_dataset/%s' % db
+	for imagePath in paths.list_images(data_training):
+        # load the image, convert it to grayscale, and describe it
+		# image = cv2.imread(imagePath)
+		# try:
+		# 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+		# except:
+		# 	print('ERROR di:', imagePath)
+		# hist = desc.describe(gray)
+        # extract the label from the image path, then update the
+        # label and data lists
+		# print(imagePath)
+		directory.append(imagePath)
+		labels.append(imagePath.split("/")[-2])  # use "\\" in Windows
+		# data.append(hist)
+	return labels, directory
 # # load dataset
 # fiture, label = get_lbpDataset("jaffe", 8, 4)
 
