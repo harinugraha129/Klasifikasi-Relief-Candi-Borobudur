@@ -12,8 +12,7 @@ from lib.database import DB
 DB.init()
 # Create your views here.
 def index(request): 
-	print(my_storage)
-	# data, label, directory = get_lbpDataset('data_train', 8, 4)
+	
 	label, directory = get_Dataset('data_train')
 
 	DB.delete_all('tb_dataTraining')
