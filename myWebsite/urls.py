@@ -37,6 +37,7 @@ urlpatterns = [
     path('testing/upload/', test_views.upload, name="testing_upload"),
     path('testing/delete/<int:id>', test_views.delete, name="testing_delete"),
     path ('testing/api/', test_api.test_api ),
+    path ('testing/api_lantai/', test_api.test_lantai ),
     path ('test_post/api/', test_api.test_post ),
 
 

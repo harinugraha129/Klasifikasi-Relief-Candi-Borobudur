@@ -5,6 +5,7 @@ from .models import DataTesting
 # Create your views here.
 import pandas as pd
 from lib.main_function import get_lbpDataset
+from lib.knn import get_knn_clasification
 
 from django.core.files.storage import FileSystemStorage
 from myWebsite.settings import MEDIA_ROOT
@@ -51,12 +52,13 @@ def upload(request):
 
 		data, label, direc = get_lbpDataset('data_train', int(point), int(radius))
 
-		result = get_kNN_clasification(int(nilai_k), data, label, lbp_value)
+		# result = get_kNN_clasification(int(nilai_k), data, label, lbp_value)
+		result = get_knn_clasification(int(nilai_k), data, label, lbp_value)
 		print(result)
 
 		final_result = DataTesting.objects.create(
     		image = name,
-		    label = result,
+		    label = result[0],
 		    directory = directory
 		)
 

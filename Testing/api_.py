@@ -59,9 +59,9 @@ def _grab_image(path=None, stream=None, url=None):
 	# return the image
 	return image
 
-# @csrf_exempt
+# @permission_classes([IsAuthenticated])
+@csrf_exempt
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def test_api(request):
 	data = {
 		'data'	: 'contoh 1',
@@ -75,8 +75,8 @@ def test_api(request):
 def test_post(request):
 	data = {
 		'data'	: request.POST['data'],
-		'data1'	: request.POST['data1'],
-		'data2'	: request.POST['data2'],
+		# 'data1'	: request.POST['data1'],
+		# 'data2'	: request.POST['data2'],
 	}
 	fs = FileSystemStorage()
 	uploaded_file = request.FILES['gambar']
@@ -88,5 +88,16 @@ def test_post(request):
 	file_name = os.path.join(MEDIA_ROOT,uploaded_file.name)
 	response={
 		'response':'sukses post'
+	}
+	return JsonResponse(response)
+
+@csrf_exempt
+@api_view(['POST', ])
+def test_lantai(request):
+	data = {
+		'data'	: request.POST['lantai'],
+	}
+	response={
+		'response':'sukses post '+str(request.POST['lantai'])
 	}
 	return JsonResponse(response)
