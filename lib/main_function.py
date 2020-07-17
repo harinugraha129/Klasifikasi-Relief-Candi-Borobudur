@@ -16,7 +16,6 @@ def get_lbpImg(image, points, radius):
 		# print('ERROR di:', imagePath)
 		gray = image
 	hist = desc.describe(gray)
-
 	return hist
 
 def get_lbpDataset(db, points, radius):
@@ -36,9 +35,8 @@ def get_lbpDataset(db, points, radius):
 		hist = desc.describe(gray)
         # extract the label from the image path, then update the
         # label and data lists
-		# print(imagePath)
 		directory.append(imagePath)
-		labels.append(imagePath.split("/")[-2])  # use "\\" in Windows
+		labels.append(imagePath.split("\\")[-2])  # use "\\" in Windows
 		data.append(hist)
 	return data, labels, directory
 
@@ -68,7 +66,7 @@ def get_Dataset(db):
         # label and data lists
 		# print(imagePath)
 		directory.append(imagePath)
-		labels.append(imagePath.split("/")[-2])  # use "\\" in Windows
+		labels.append(imagePath.split("\\")[-2])  # use "\\" in Windows
 		# data.append(hist)
 	return labels, directory
 # # load dataset

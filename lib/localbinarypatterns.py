@@ -21,6 +21,5 @@ class LocalBinaryPatterns:
 		# normalize the histogram
 		hist = hist.astype("float")
 		hist /= (hist.sum() + eps)
-
 		# return the histogram of Local Binary Patterns
 		return hist

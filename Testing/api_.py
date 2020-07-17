@@ -1,15 +1,19 @@
 # import the necessary packages
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
 import numpy as np
 import urllib
+import json
+import os
+import cv2
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.core.files.storage import FileSystemStorage
 from myWebsite.settings import MEDIA_ROOT
-import json
-import os
-import cv2
+from lib.main_function import get_lbpDataset
+from lib.knn import get_knn_clasification
+from lib.main_function import get_lbpImg, get_kNN_clasification
+
 @csrf_exempt
 def detect(request):
 	# initialize the data dictionary to be returned by the request
@@ -59,7 +63,7 @@ def _grab_image(path=None, stream=None, url=None):
 	# return the image
 	return image
 
-# @permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated, ])
 @csrf_exempt
 @api_view(['GET'])
 def test_api(request):
@@ -73,13 +77,8 @@ def test_api(request):
 @csrf_exempt
 @api_view(['POST', ])
 def test_post(request):
-	data = {
-		'data'	: request.POST['data'],
-		# 'data1'	: request.POST['data1'],
-		# 'data2'	: request.POST['data2'],
-	}
 	fs = FileSystemStorage()
-	uploaded_file = request.FILES['gambar']
+	uploaded_file = request.FILES['image']
 	# get file name
 	name = fs.save(uploaded_file.name, uploaded_file)
 	# get directori
@@ -99,5 +98,40 @@ def test_lantai(request):
 	}
 	response={
 		'response':'sukses post '+str(request.POST['lantai'])
+	}
+	return JsonResponse(response)
+
+@csrf_exempt
+@api_view(['POST', ])
+def testing(request):
+
+	point = 8
+	radius = 4
+	nilai_k = 1
+	fs = FileSystemStorage()
+	uploaded_file = request.FILES['image']
+	# get file name
+	name = fs.save(uploaded_file.name, uploaded_file)
+	print(name)
+	# get directori
+	directory = fs.url(name)
+	# get directory OS
+	file_name = os.path.join(MEDIA_ROOT,uploaded_file.name)
+	print(file_name)
+	img = cv2.imread(file_name)
+	lbp_value = get_lbpImg(img, int(point), int(radius))
+	print(lbp_value)
+
+
+	data, label, direc = get_lbpDataset('data_train', int(point), int(radius))
+	print(data)
+
+	# result = get_kNN_clasification(int(nilai_k), data, label, lbp_value)
+	result = get_knn_clasification(int(nilai_k), data, label, lbp_value)
+	print(result)
+	
+	response={
+		'response'	:'sukses post',
+		'result' 	: result[0]
 	}
 	return JsonResponse(response)

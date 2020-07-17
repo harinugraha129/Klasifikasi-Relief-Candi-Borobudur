@@ -19,7 +19,7 @@
       .nav-link:hover {
         background-color: grey;
       }
-
+      
       .nav {
         position: fixed;
       }
@@ -43,6 +43,18 @@
           <a class="nav-link active text-white" href="/"> <i class="fas fa-tachometer-alt mr-2"></i> Dashboard</a><hr class="bg-secondary">
           <a class="nav-link text-white" href="/data_train"> <i class="fas fa-database mr-2"></i> Data Latih</a><hr class="bg-secondary">
           <a class="nav-link text-white" href="/testing"> <i class="fas fa-list mr-2"></i> Pengujian</a><hr class="bg-secondary">
+          
+          <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Face Testing
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="/data_train">Data Latih</a>
+              <a class="dropdown-item" href="/testing">Pengujian</a>
+              </div>
+          </div> <hr class="bg-secondary">
+          
           <a class="nav-link text-white" href="#"> <i class="fas fa-sign-out-alt mr-2"></i> Keluar</a><hr class="bg-secondary">
         </nav>
       </div>

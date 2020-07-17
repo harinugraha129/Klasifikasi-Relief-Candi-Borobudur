@@ -4,7 +4,6 @@ from .models import DataTesting
 
 # Create your views here.
 import pandas as pd
-from lib.main_function import get_lbpDataset
 from lib.knn import get_knn_clasification
 
 from django.core.files.storage import FileSystemStorage
@@ -13,12 +12,12 @@ from myWebsite.settings import MEDIA_ROOT
 import cv2
 import os, sys
 
-from lib.main_function import get_lbpImg, get_kNN_clasification
+from lib.main_function import get_lbpImg, get_kNN_clasification, get_lbpDataset
 # from lib.database import DB
 # Create your views here.
 def index(request): 
     
-	data, label, directory = get_lbpDataset('data_train', 8, 4)
+	# data, label, directory = get_lbpDataset('data_train', 8, 4) 
 
 	tb_dataTesting = DataTesting.objects.all()
 
@@ -34,8 +33,8 @@ def upload(request):
 	if request.method == 'POST':
 
 		nilai_k = request.POST['nilai_k']
-		point = request.POST['point']
-		radius = request.POST['radius']
+		# point = request.POST['point']
+		# radius = request.POST['radius']
 
 		fs = FileSystemStorage()
 		uploaded_file = request.FILES['image']
@@ -47,10 +46,13 @@ def upload(request):
 		# load image
 		print(file_name)
 		img = cv2.imread(file_name)
-		lbp_value = get_lbpImg(img, int(point), int(radius))
+		# lbp_value = get_lbpImg(img, int(point), int(radius))
+		lbp_value = get_lbpImg(img, 8, 4)
+		print(lbp_value)
 
-
-		data, label, direc = get_lbpDataset('data_train', int(point), int(radius))
+		# data, label, direc = get_lbpDataset('data_train', int(point), int(radius))
+		data, label, direc = get_lbpDataset('data_train', 8, 4)
+		print(data)
 
 		# result = get_kNN_clasification(int(nilai_k), data, label, lbp_value)
 		result = get_knn_clasification(int(nilai_k), data, label, lbp_value)

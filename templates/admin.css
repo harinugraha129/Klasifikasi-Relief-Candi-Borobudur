@@ -1,0 +1,12 @@
+.nav-link:hover {
+	background-color: grey;
+}
+
+.nav {
+	position: fixed;
+}
+
+.jumbotron {
+	background-image: url("img/jumbotron_background_2.jpg");
+	background-size: cover;
+}

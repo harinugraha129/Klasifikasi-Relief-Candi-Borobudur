@@ -15,6 +15,9 @@ def index(request):
 	
 	label, directory = get_Dataset('data_train')
 
+	# local = get_lbpDataset('data_train', 8, 4)
+	# print(local)
+
 	DB.delete_all('tb_dataTraining')
 	for x in range(len(label)):
 		

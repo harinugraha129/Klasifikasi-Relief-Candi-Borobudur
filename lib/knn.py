@@ -1,5 +1,6 @@
 import pandas as pd
 from .distance import chebishev_D
+from .distance import euclidean_D
 
 
 
@@ -11,7 +12,7 @@ def get_knn_clasification(K, dataTraining, labels, dataTesting):
 	for j in range(0, len(dataTraining) ):
 		x = dataTesting
 		y = dataTraining[j]
-		Distance.append(chebishev_D(x,y, len(x)))
+		Distance.append(euclidean_D(x,y, len(x)))
 		label.append(labels[j])
 		dataJarak = {'jarak' : pd.Series(Distance),
 					'label' : pd.Series(label)} 
@@ -24,7 +25,5 @@ def get_knn_clasification(K, dataTraining, labels, dataTesting):
 	# mengambil mayoritas dari label
 	y_pred.append(df.groupby(["label"]).count().sort_values(by=['jarak']).
 	tail(1).index.get_level_values('label')[0])
-	print("manual knn")
+	print("Identifikasi Selesai")
 	return y_pred
-	# Mendapatkan Label Sebenarnya
-	# y_true.append(dtTest[a][i][n_feature])
