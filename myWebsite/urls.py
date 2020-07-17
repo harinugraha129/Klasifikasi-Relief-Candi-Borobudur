@@ -22,6 +22,8 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 from Data_Train import views as dt_views
+from Fast_Testing import views as fast_views
+from Fast_Testing.api import testing as fast_testing_api
 from Testing import views as test_views
 from Testing import api_ as test_api
 
@@ -36,11 +38,16 @@ urlpatterns = [
     path('testing/', test_views.index, name="testing"),
     path('testing/upload/', test_views.upload, name="testing_upload"),
     path('testing/delete/<int:id>', test_views.delete, name="testing_delete"),
-    path('api/testing/', test_api.testing, name="api_testing"),
+    # path('api/testing/', test_api.testing, name="api_testing"),
     path ('testing/api/', test_api.test_api ),
     path ('testing/api_lantai/', test_api.test_lantai ),
     path ('test_post/api/', test_api.test_post ),
 
+
+    path ('fast_testing/data_train/', fast_views.data_train, name="fast_train" ),
+    path ('fast_testing/refresh/', fast_views.refresh_dataTrain, name="refresh" ),
+    path ('fast_testing/testing/', fast_views.upload, name="fast_testing" ),
+    path('api/fast_testing/', fast_testing_api, name="fast_testing_API"),
 
     #REST_FRAMEWORK URLS
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # <-- And here

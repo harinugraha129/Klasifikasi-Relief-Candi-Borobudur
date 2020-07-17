@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Data_Train',
     'Testing',
+    'Fast_Testing',
     'rest_framework',
     'rest_framework.authtoken',
+
 ]
 
 # AUTH_USER_MODEL = 'account.Account'

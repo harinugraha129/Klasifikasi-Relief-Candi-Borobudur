@@ -9,4 +9,24 @@
 .jumbotron {
 	background-image: url("img/jumbotron_background_2.jpg");
 	background-size: cover;
+}	
+
+@media screen and (max-width: 520px) {
+	table {
+		width: 100%;
+	}
+	thead {
+		display: none;
+	}
+	td {
+		display: block;
+		text-align: right;
+		border-right: 1px solid #e1edff;
+	}
+	td::before {
+		float: left;
+		text-transform: uppercase;
+		font-weight: bold;
+		content: attr(data-header);
+	}
 }
